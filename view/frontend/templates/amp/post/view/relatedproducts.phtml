@@ -22,64 +22,41 @@ if ($exist = $block->getItems()->getSize() && $this->displayProducts()) {
     $image = 'related_products_list';
     $title = __('Related Products');
     $items = $block->getItems();
-    $limit = 0;
-    $shuffle = 0;
-    $canItemsAddToCart = true;
-
-    $showWishlist = true;
-    $showCompare = true;
-    $templateType = null;
 }
 ?>
-
-<?php if ($exist):?>
-<div class="block <?php echo $class; ?>">
-    <div class="block-title title">
-        <strong id="block-<?php echo $class?>-heading" role="heading" aria-level="2"><?php echo $title; ?></strong>
-    </div>
-    <div class="block-content content" aria-labelledby="block-<?php echo $class?>-heading">
-
-        <div class="products wrapper grid products-grid products-<?php echo $type; ?>">
-             <amp-carousel
-             width="500"
-             height="400"
-             layout="responsive"
-             type="slides"
-             autoplay
-             delay="5000"
-             >
-            <?php /*<ol class="products list items product-items">*/ ?>
-                <?php $iterator = 1; ?>
-                <?php foreach ($items as $_item): ?>
-                <?php $available = ''; ?>
-                <?php if (!$_item->isComposite() && $_item->isSaleable() && $type == 'related'): ?>
-                    <?php if (!$_item->getRequiredOptions()): ?>
-                        <?php $available = 'related-available'; ?>
-                    <?php endif; ?>
-                <?php endif; ?>
-                <?php if ($type == 'related' || $type == 'upsell'): ?>
-                    <?php echo($iterator++ == 1) ? '<div class="item product product-item" style="display: none;">' : '</div><div class="item product product-item" style="display: none;">' ?>
-                <?php else: ?>
-                    <?php echo($iterator++ == 1) ? '<div class="item product product-item">' : '</div><div class="item product product-item">' ?>
-                <?php endif; ?>
-                <div class="product-item-info <?php echo $available; ?>">
-                    <?php echo '<!-- ' . $image . '-->' ?>
-                    <a href="<?php echo $block->getProductUrl($_item) ?>" class="product photo product-item-photo">
-                        <?php echo $block->getImage($_item, $image)->toHtml(); ?>
-                    </a>
-                    <div class="product details product-item-details">
-                        <strong class="product name product-item-name"><a class="product-item-link" title="<?php echo $block->escapeHtml($_item->getName()) ?>" href="<?php echo $block->getProductUrl($_item) ?>">
-                            <?php echo $block->escapeHtml($_item->getName()) ?></a>
-                        </strong>
-
-                        <?php echo $block->getProductPrice($_item); ?>
-                        </div>
-                    </div>
-                    <?php echo($iterator == count($items)+1) ? '</div>' : '' ?>
-                <?php endforeach ?>
-            </amp-carousel>
+<?php if ($exist) : ?>
+<div class="amp-product-items-block">
+    <div class="block items-block items-block-<?php /* @escapeNotVerified */ echo $class; ?> <?php echo $class; ?>">
+        <div class="block-title title">
+            <strong id="block-<?php echo $class?>-heading" role="heading" aria-level="2"><?php echo $title; ?></strong>
         </div>
+        <amp-carousel height="300" width="300" layout="responsive" type="slides" autoplay delay="5000">
+            <?php foreach ($items as $_item) : ?>
+                <?php
+                /**
+                 * Get product data
+                 */
+                $_productName = $block->escapeHtml($_item->getName());
+                $_productUrl = /* @escapeNotVerified */ $block->getProductUrl($_item);
+
+                /**
+                 * Get product image and set amp-image template
+                 */
+                $_productImage = $block->getImage($_item, 'pr_amp_sliders');
+                $_productImage->setCustomAttributes('layout="responsive"');
+                $_productImage->setTemplate('Plumrocket_Amp::catalog/product/image.phtml');
+                ?>
+                <div class="item-content">
+                    <a class="item-image" href="<?php echo $_productUrl ?>" title="<?php echo $_productName ?>">
+                        <?php echo $_productImage->toHtml() ?>
+                    </a>
+                    <a class="item-detail" href="<?php echo $_productUrl ?>" title="<?php echo $_productName ?>">
+                        <span class="item-name"><?php echo $_productName ?></span>
+                        <span class="item-price"><?php /* @escapeNotVerified */ echo $block->getProductPrice($_item); ?></span>
+                    </a>
+                </div>
+            <?php endforeach; ?>
+        </amp-carousel>
     </div>
 </div>
-<?php endif;?>
-
+<?php endif; ?>
