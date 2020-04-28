@@ -13,10 +13,12 @@ https://magefan.com/blog/magento-2-blog-extension-documentation
 
 
 ## Installation Instruction
+```
 composer require magefan/module-blog-amp
 php bin/magento setup:upgrade
 php bin/magento setup:di:compile
 php bin/magento setup:static-content:deploy
+```
 
 
 ## Support
