@@ -6,6 +6,7 @@
 ## Requirements
   * Magento Community Edition 2.2.0-2.4.0 or Magento Enterprise Edition 2.2.0-2.4.0
   * [Magefan Magento 2 Blog Extension](https://github.com/magefan/module-blog) >= v2.9.1 . Please install this extension first if you use installation via FTP.
+  * [Plumrocket AMP](https://magefan.com/accelerated-mobile-pages/) 
 
 
 ## Online Documentation
