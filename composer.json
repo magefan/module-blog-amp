@@ -2,10 +2,10 @@
   "name": "magefan/module-blog-amp",
   "description": "Add AMP view for Blog.",
   "require": {
-    "magefan/module-blog": ">=2.9.3"
+    "magefan/module-blog": ">=2.10.1"
   },
   "type": "magento2-module",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "autoload": {
     "files": [ "registration.php" ],
     "psr-4": {
