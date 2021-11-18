@@ -3,6 +3,10 @@
 [![Total Downloads](https://poser.pugx.org/magefan/module-blog-amp/downloads)](https://packagist.org/packages/magefan/module-blog-amp)
 [![Latest Stable Version](https://poser.pugx.org/magefan/module-blog-amp/v/stable)](https://packagist.org/packages/magefan/module-blog-amp)
 
+---
+Attention! This repo is deprecated. If you have Plumrocket AMP v3, you need to use [Magento AMP Blog Extension](https://magefan.com/magento-2-amp-blog-extension).
+--
+
 ## Requirements
   * Magento Community Edition 2.2.0-2.4.x or Magento Enterprise Edition 2.2.0-2.4.x
   * [Magefan Magento 2 Blog Extension](https://github.com/magefan/module-blog) >= v2.10.1 . Please install this extension first if you use installation via FTP.
