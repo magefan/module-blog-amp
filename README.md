@@ -3,6 +3,8 @@
 [![Total Downloads](https://poser.pugx.org/magefan/module-blog-amp/downloads)](https://packagist.org/packages/magefan/module-blog-amp)
 [![Latest Stable Version](https://poser.pugx.org/magefan/module-blog-amp/v/stable)](https://packagist.org/packages/magefan/module-blog-amp)
 
+<img width="150" height="100" src="https://magefan.com/media/wysiwyg/made_in_ukraine.jpg">
+
 ---
 Attention! This repo is deprecated. If you have Plumrocket AMP v3, you need to use [Magento AMP Blog Extension](https://magefan.com/magento-2-amp-blog-extension).
 --
